@@ -16,21 +16,32 @@ This will be an interesting module to continue playing with to practice embedded
 ## Completed 2022
 
 ### Needs to do:
+
  [*] Create a data sampler, record data for T seconds output a spectrogram
-     [*] Add in processing of targets in that window
+
+ [*] Add in processing of targets in that window
+
  [*] Create a data logger, record data for T seconds (wav files)
+
  [*] Create a data collection strategy
+
  [*] Create a real time data displayer, update display
+
  [*] Analyze data, how to pick out strongest signals?
+
  [*] Create batch program to process data..
+
  [*] Ideally create a real time program that displays data with Qt -
+
  [ ] Can I read data over UDP (unecessary, used Python multiprocessing for IPC classes)
 
 
  Experimental data gathering.
 
  [*] Person walkng
+
  [*] Person running
+
  [*] Person riding bicycle
 
  doppler shifts will be FD= FT * (2v/c)
