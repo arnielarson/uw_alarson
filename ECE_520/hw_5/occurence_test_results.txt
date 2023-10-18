@@ -1,0 +1,62 @@
+Line: This, is one.
+Original token: This,
+Processed token: this is valid: 1
+Original token: is
+Processed token: is is valid: 1
+Original token: one.
+Processed token: one is valid: 1
+Line: This isn't
+Original token: This
+Processed token: this is valid: 1
+Original token: isn't
+Processed token: isn't is valid: 1
+Line: And&&S "shit" sh"t
+Original token: And&&S
+Processed token: and&&s is valid: 0
+Original token: "shit"
+Processed token: shit is valid: 1
+Original token: sh"t
+Processed token: sh"t is valid: 0
+Line: And this!
+Original token: And
+Processed token: and is valid: 1
+Original token: this!
+Processed token: this is valid: 1
+Line: tabs	more_tabs	tabs!!!	(xx?)
+Original token: tabs	more_tabs	tabs!!!	(xx?)
+Processed token: tabs	more_tabs	tabs!!!	(xx is valid: 0
+Line: This is a sentence. Don't think of wier_d strings as words. Really, 123 is a nice number.
+Original token: This
+Processed token: this is valid: 1
+Original token: is
+Processed token: is is valid: 1
+Original token: a
+Processed token: a is valid: 1
+Original token: sentence.
+Processed token: sentence is valid: 1
+Original token: Don't
+Processed token: don't is valid: 1
+Original token: think
+Processed token: think is valid: 1
+Original token: of
+Processed token: of is valid: 1
+Original token: wier_d
+Processed token: wier_d is valid: 0
+Original token: strings
+Processed token: strings is valid: 1
+Original token: as
+Processed token: as is valid: 1
+Original token: words.
+Processed token: words is valid: 1
+Original token: Really,
+Processed token: really is valid: 1
+Original token: 123
+Processed token: 123 is valid: 1
+Original token: is
+Processed token: is is valid: 1
+Original token: a
+Processed token: a is valid: 1
+Original token: nice
+Processed token: nice is valid: 1
+Original token: number.
+Processed token: number is valid: 1

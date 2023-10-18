@@ -1,8 +1,9 @@
 # uw_alarson
 
-## Making some of my more interesting codes/projects from UW ECE masters program available
-
 ## Arnold Larson
+
+
+### Making some of my more interesting codes/projects from UW ECE masters program available
 
 All code contained in here is not maintained, organized or curated for use.
 
