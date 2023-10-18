@@ -1,0 +1,23 @@
+<launch>
+    <arg name="min_delta" value = "-0.341" />
+    <arg name="max_delta" value = "0.34" />
+    <arg name="N" value = "2" />
+    <arg name="speed" value = "1" />
+    <arg name="phys" value = "1" />
+    <arg name="dt" value = "0.01" />
+    <arg name="T" value = "200" />
+    <arg name="compute_time" value = "0.08" />
+    <arg name="laser_offset" value = "0.9" />
+    <node name="wanderer" pkg="lab3" type="laser_wanderer.py" output="screen">
+       <param name="min_delta" value="$(arg min_delta)" />
+       <param name="max_delta" value="$(arg max_delta)" />
+       <param name="N" value="$(arg N)" />
+       <param name="speed" value="$(arg speed)" />
+       <param name="phys" value="$(arg phys)" />
+       <param name="dt" value="$(arg dt)" />
+       <param name="T" value="$(arg T)" />
+       <param name="compute_time" value="$(arg compute_time)" />
+       <param name="laser_offset" value="$(arg laser_offset)" />
+    </node>
+
+</launch>

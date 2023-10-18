@@ -1,0 +1,62 @@
+<launch>
+    <!-- Default params for BagFollower -->
+    <arg name="bag_path" default="/home/robot/catkin_ws/src/ee-lab2/bagfiles" />
+    <arg name="bag_filename" default="2022-10-18-14-18-28.bag" />
+    <arg name="follow_backwards" default="0" />
+
+    <arg name="map_server" value = "1" />
+    <arg name="car_name" default="car" />
+
+    <group if="$(arg map_server)">
+        <include file="$(find mushr_sim)/launch/map_server.launch" />
+    </group>
+
+    <arg name="racecar_version" default="racecar-uw-nano" />
+    <arg name="racecar_color" default=""/>
+    <arg name="force_in_bounds" value = "1"/>
+
+
+    <group ns="$(arg car_name)">
+
+      <param name="robot_description"
+         textfile="$(find mushr_description)/robots/$(arg racecar_version)$(arg racecar_color).urdf"/>
+
+      <include file="$(find mushr_base)/launch/includes/racecar_state.launch" >
+            <arg name="force_in_bounds" value="$(arg force_in_bounds)"/>
+            <arg name="tf_prefix" value="$(arg car_name)" />
+      </include>
+
+      <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher">
+          <param name="tf_prefix" value="$(arg car_name)"/>
+          <param name="robot_description" value="/$(arg car_name)/robot_description" />
+      </node>
+
+      <group ns="mux">
+          <!-- Spawn MUXs -->
+          <include file="$(find ackermann_cmd_mux)/launch/mux.launch" />
+      </group>
+
+      <group ns="vesc">
+          <!-- Start electronic speed controller driver -->
+          <include file="$(find mushr_sim)/launch/vesc.launch.xml" >
+              <arg name="mux_output_topic" value="/$(arg car_name)/mux/ackermann_cmd_mux/output" />
+              <arg name="car_name" value="/$(arg car_name)" />
+          </include>
+      </group>
+
+      <!-- Launch sensors -->
+      <include file="$(find mushr_sim)/launch/sensors.launch.xml" >
+          <arg name="racecar_version" value="$(arg racecar_version)" />
+          <arg name="tf_prefix" value="$(arg car_name)"/>
+      </include>
+    </group>
+
+
+    <node name="clone" pkg="lab2" type="BagFollower.py" output="screen">
+       <param name="bag_path" value="$(arg bag_path)" />
+       <param name="bag_filename" value="$(arg bag_filename)" />
+       <param name="follow_backwards" value="$(arg follow_backwards)"  />
+    </node>
+
+  
+</launch>

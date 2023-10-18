@@ -1,0 +1,29 @@
+<launch>
+
+  <arg name="plan_file" value = "test.csv" />
+  <arg name="rot_weight" value = "0.35" />
+  <arg name="waypoint_weight" value = "0.7" />
+  <arg name="plan_lookahead" value = "7" />
+  <arg name="speed" value = "0.5" />
+  <arg name="ki" value = "-0.1" />
+  <arg name="kp" value = "0.9" />
+  <arg name="kd" value = "0.3" />
+  <arg name="error_buff_len" value = "10" />
+
+
+
+	<node pkg="final" type="Driver.py" name="DriverNode" output="screen">
+      <param name="plan_file" type="string" value="$(arg plan_file)" />
+      <param name="plan_topic" type="string" value="/driver_node/car_plan" /> 
+      <param name="viz_plan_topic" type="string" value="/driver_node/viz/car_plan" />   
+      <param name="pose_topic" type="string" value="/pf/viz/inferred_pose" />
+      <param name="rot_weight" value="$(arg rot_weight)" />
+      <param name="waypoint_weight" value="$(arg waypoint_weight)" />
+      <param name="ki" value="$(arg ki)" />
+      <param name="kp" value="$(arg kp)" />
+      <param name="kd" value="$(arg kd)" />
+      <param name="error_buff_len" value="$(arg error_buff_len)" />
+      <param name="plan_lookahead" value="$(arg plan_lookahead)" />
+      <param name="speed" value="$(arg speed)" />     
+	</node>
+</launch>

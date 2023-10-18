@@ -1,0 +1,24 @@
+<launch>
+
+    <arg name="rot_weight" value = "0.0" />
+    <arg name="waypoint_weight" value = "1" />
+    <arg name="plan_lookahead" value = "3" />
+    <arg name="speed" value = "1" />
+    <arg name="ki" value = "0.2" />
+    <arg name="kp" value = "1" />
+    <arg name="kd" value = "0" />
+    <arg name="error_buff_len" value = "10" />
+
+
+    <node name="line" pkg="lab3" type="line_follower.py" output="screen">
+       <param name="rot_weight" value="$(arg rot_weight)" />
+       <param name="waypoint_weight" value="$(arg waypoint_weight)" />
+       <param name="ki" value="$(arg ki)" />
+       <param name="kp" value="$(arg kp)" />
+       <param name="kd" value="$(arg kd)" />
+       <param name="error_buff_len" value="$(arg error_buff_len)" />
+       <param name="plan_lookahead" value="$(arg plan_lookahead)" />
+       <param name="speed" value="$(arg speed)" />
+    </node>
+
+</launch>

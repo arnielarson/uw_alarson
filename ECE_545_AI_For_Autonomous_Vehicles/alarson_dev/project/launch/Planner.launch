@@ -1,0 +1,8 @@
+<launch>
+  <arg name="plan_filename" value ="test.csv" />
+  
+	<node pkg="final" type="Planner.py" name="Planner" output="screen">
+      <param name="plan_topic" type="string" value="driver_node/car_plan" />   
+      <param name="plan_filename" type="string" value="$(arg plan_filename)" />   
+	</node>
+</launch>

@@ -1,0 +1,4 @@
+bool smooth
+---
+float32[] plan
+bool success
